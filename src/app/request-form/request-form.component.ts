@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
+import { RequestsService } from '../requests.service';
 
 const MOT = [
   'robo',
@@ -13,35 +14,55 @@ const MOT = [
   templateUrl: './request-form.component.html',
   styleUrls: ['./request-form.component.css']
 })
+
 export class RequestFormComponent implements OnInit {
   motivos;
   machines;
-  requestForm;
-
+  requestForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      phone: ['', Validators.required],
+      city: ['', Validators.required],
+      region: ['', Validators.required],
+      street: ['', Validators.required],
+      sNumber: ['', Validators.required],
+      other: ['', Validators.required],
+      motive: [''],
+      fromTime: ['', Validators.required],
+      toTime: ['', Validators.required]
+    });
   onSubmit(): void {
+    this
+      .requestService
+      .sendTempRequest(this.requestForm).subscribe();
+    // this.clearForm();
     this.router.navigateByUrl('/request/list');
+  }
+
+  clearForm(): void {
+    this.requestForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      phone: ['', Validators.required],
+      city: ['', Validators.required],
+      region: ['', Validators.required],
+      street: ['', Validators.required],
+      sNumber: ['', Validators.required],
+      other: ['', Validators.required],
+      motive: [''],
+      fromTime: ['', Validators.required],
+      toTime: ['', Validators.required]
+    });
   }
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private requestService: RequestsService
   ) {
-    this.requestForm = this.formBuilder.group({
-      name: '',
-      phone: '',
-      city: '',
-      region: '',
-      street: '',
-      sNumber: '',
-      other: '',
-      motive: '',
-      fromTime: '',
-      toTime: ''
-    });
   }
 
   ngOnInit() {
     this.motivos = MOT;
   }
+
 
 }

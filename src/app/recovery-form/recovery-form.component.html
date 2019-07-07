@@ -31,16 +31,9 @@
         </select>
       </div>
       </div>
-      <div class="row justify-content-center">
-        <label class='col-3'>Archivos eliminados</label>
-        <div class="btn-group btn-group-toggle col-9" ngbRadioGroup name="radioBasic" formControlName="deleted">
-          <label ngbButtonLabel class="btn-outline-primary">
-            <input ngbButton type="radio" [value]="false"> Incluir
-          </label>
-          <label ngbButtonLabel class="btn-outline-primary">
-            <input ngbButton type="radio" [value]="false"> No incluir
-          </label>
-        </div>
+      <div class="row">
+        <label class='col-4'>Incluir archivos eliminados</label>
+        <input class='col-1' type="checkbox" [value]="false" formControlName="deleted"> 
       </div>
       <div class="row justify-content-center">
         <label class="col-3" >Fecha de recuperacion</label>
@@ -56,7 +49,7 @@
   </div>
   <div class="modal-footer">
 		<button type="button" class="btn btn-primary" (click)="addRecovery()">Agregar</button>
-    <button type="button" class="btn btn-secondary" (click)="modal.close('Save click')">Borrar</button>
+    <button type="button" class="btn btn-secondary" (click)="clearForm()">Borrar</button>
 		<button type="button" class="btn btn-outline-secondary" (click)="modal.close('Save click')">Cerrar</button>
 	</div>
 </ng-template>

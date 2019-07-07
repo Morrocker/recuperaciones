@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Recovery } from './classes';
+import { Recovery, NewRecovery } from './classes';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,6 +15,7 @@ const httpOptions = {
 export class RecoveriesService {
 
   private recoveriesUrl = 'api/recoveries';
+  private newrecoveriesUrl = 'api/newrecoveries';
 
   constructor(
     private http: HttpClient,
@@ -36,4 +37,27 @@ export class RecoveriesService {
     );
   }
 
+  getRecoveriesByRequest(recId: number): Observable<Recovery[]> {
+    return this.http.get<Recovery[]>(`api/recoveries2/?recId=${recId}`)
+    .pipe(
+      catchError(this.handleError<Recovery[]>('getRequests', []))
+    );
+  }
+
+  addNewRecovery(newRecovery: NewRecovery) {
+    return this.http
+      .post<NewRecovery>(this.newrecoveriesUrl, newRecovery, httpOptions)
+      .pipe(
+      catchError(this.handleError<NewRecovery>('addRecovery'))
+    );
+  }
+
+
+  cancelRecovery(id: number) {
+    return this.http
+      .post<NewRecovery>('api/cancelRecovery', id, httpOptions)
+      .pipe(
+      catchError(this.handleError<NewRecovery>('addRecovery'))
+    );
+  }
 }

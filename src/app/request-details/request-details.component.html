@@ -1,6 +1,11 @@
 <app-top-bar>
 </app-top-bar>
-<app-recovery-admin-top></app-recovery-admin-top>
+<div class="row justify-content-center">
+  <div class="col-3 offset-6 d-flex justify-content-between">
+    <button class="btn btn-primary" type="button" (click)="startRequest()">Lanzar recuperacion</button>
+    <button class="btn btn-danger" type="button" (click)="cancelRequest()">Cancelar solicitud</button>
+  </div>
+</div>
 <div class="row justify-content-center" *ngIf="request">
   <div class="col-11">
     <div class="card" >
@@ -68,7 +73,7 @@
           <div class="col-2">{{recovery.date}}</div>
           <div class="col-1">
       <i class="material-icons md-24 px-2" >description</i>
-      <i class="material-icons md-24 px-2" >delete</i>
+      <i class="material-icons md-24 px-2" (click)="cancelRecovery(recovery.id, recovery)" >delete</i>
         </div>
         </div>
       </div>

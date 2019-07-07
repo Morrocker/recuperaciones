@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
         // this.authService.authLogin(this.model);
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('token', this.f.userid.value);
-        localStorage.setItem('foo', 'bar');
+        localStorage.setItem('userId', '1');
         this.router.navigate([this.returnUrl]);
       } else {
         this.message = 'Verificar correo o contrasena';

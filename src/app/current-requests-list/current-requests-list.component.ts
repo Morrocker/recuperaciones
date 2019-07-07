@@ -17,7 +17,7 @@ export class CurrentRequestsListComponent implements OnInit {
     // this.requests = this.requestService.getRequests();
     this
       .requestService
-      .getRequests()
+      .getRequestsByUser( parseInt(localStorage.getItem('userId'), 10) )
       .subscribe( requests => this.requests = requests );
   }
 
@@ -26,8 +26,5 @@ export class CurrentRequestsListComponent implements OnInit {
 
   ngOnInit() {
     this.getRequests();
-    this.foo = localStorage.getItem('foo');
-    this.loginState = localStorage.getItem('isLoggedIn');
   }
-
 }

@@ -9,14 +9,14 @@
 					<div class="row ">
 						<label class="col-3">Contacto de recepcion</label>
 						<div class="col">
-							<input type="text" class="form-control" formControlName="name" placeholder="completo de contacto">
+							<input type="text" class="form-control" formControlName="name" placeholder="completo de contacto" required>
 						</div>
 					</div>
 
 					<div class="row ">
 						<label class="col-3">Telefono de contacto</label>
 						<div class="col">
-              <input type="tel" class="form-control" formControlName="phone" placeholder="+56 9 1234 5678">
+              <input type="tel" class="form-control" formControlName="phone" placeholder="+56 9 1234 5678" required>
             </div>
           </div>
           <hr>
@@ -28,21 +28,21 @@
           <div class="row ">
             <label class="col-3">Ciudad</label>
             <div class="col">
-              <input type="text" class="form-control" formControlName="city" placeholder="">
+              <input type="text" class="form-control" formControlName="city" placeholder="" required>
             </div>
             <label class="col-3">Comuna</label>
             <div class="col">
-              <input type="text" class="form-control" formControlName="region" placeholder="">
+              <input type="text" class="form-control" formControlName="region" placeholder="" required>
             </div>
             </div>
           <div class="row ">
             <label class="col-3">Calle</label>
             <div class="col">
-              <input type="text" class="form-control" formControlName="street" placeholder="">
+              <input type="text" class="form-control" formControlName="street" placeholder="" required>
             </div>
             <label class="col-3">Numero</label>
             <div class="col">
-              <input type="text" class="form-control" formControlName="sNumber" placeholder="">
+              <input type="text" class="form-control" formControlName="sNumber" placeholder="" required>
             </div>
           </div>
           <div class="row ">
@@ -56,7 +56,7 @@
           <div class="row">
             <label class="col-3" >Motivo</label>
             <div class="input-group col">
-              <select id="motivos" class="form-control" formControlName="motive" >
+              <select id="motivos" class="form-control" formControlName="motive" required>
                 <option *ngFor="let motivo of motivos" value={{motivo}}>{{motivo}}</option>
               </select>
             </div>
@@ -67,11 +67,11 @@
             <label class="col-3">Horario de recepcion</label>
             <label class="col-1">Desde:</label>
 						<div class="col-2">
-							<input type="time" class="form-control" formControlName="fromTime">
+							<input type="time" class="form-control" formControlName="fromTime" required>
 						</div>
 							<label class="col-1 col-form-label">Hasta:</label>
 							<div class="col-2">
-								<input type="time" class="form-control" formControlName="toTime">
+								<input type="time" class="form-control" formControlName="toTime" required>
 							</div>
 					</div>
 
