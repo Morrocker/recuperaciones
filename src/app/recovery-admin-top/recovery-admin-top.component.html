@@ -1,0 +1,20 @@
+<div class="row justify-content-center">
+  <div class="col-1">
+    Empresa:
+  </div>
+  <div class="col-2">
+    <select class="form-control"></select>
+    <!-- {{request.delivery.cName}} -->
+  </div>
+  <div class="col-1 offset-1">
+    Fecha:
+  </div>
+  <div class="col-2 ">
+    <select class="form-control"></select>
+    <!-- {{request.delivery.cPhone}} -->
+  </div>
+  <div class="col-3 offset-1 d-flex justify-content-between">
+    <a class="btn btn-primary" [routerLink]="['/dashboard']">Lanzar recuperacion</a>
+    <a class="btn btn-danger" [routerLink]="['/dashboard']">Cancelar solicitud</a>
+  </div>
+</div>

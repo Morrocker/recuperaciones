@@ -1,0 +1,89 @@
+<app-top-bar></app-top-bar>
+<app-breadcrumb></app-breadcrumb>
+
+<div class="row justify-content-center" *ngIf="request">
+  <div class="col-11">
+    <div class="card" >
+      <div class="card-header">
+        Resumen de envio
+      </div>
+      <div class="card-body px-5">
+        <div class="row ">
+          <div class="col-3">
+            Nombre de contacto:
+          </div>
+          <div class="col-3">
+            {{request.delivery.cName}}
+          </div>
+          <div class="col-3">
+            Telefono de contacto:
+          </div>
+          <div class="col-3">
+            {{request.delivery.cPhone}}
+          </div>
+        </div>
+        <hr>
+        <div class="row ">
+          <hr>
+          <div class="col-3">
+            Direccion:
+          </div>
+          <div class="col-9">
+            {{request.delivery.address.city}}, {{request.delivery.address.com}}, {{request.delivery.address.street}}, {{request.delivery.address.sNumber}}. {{request.delivery.address.details}}
+          </div>
+        </div>
+        <hr>
+        <div class="row ">
+          <div class="col-3">
+            Motivo:
+          </div>
+          <div class="col-3">
+            {{request.motive}}
+          </div>
+          <div class="col-3">
+            Horario de recepcion:
+          </div>
+          <div class="col-3">
+            {{request.delivery.fromTime}} : {{request.delivery.toTime}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-11">
+    <div class="card" >
+      <div class="card-header px-5">
+        Lista de recuperaciones
+      </div>
+      <div class="card-body px-5">
+        <div class="row ">
+          <div class="col-2">Usuario</div>
+          <div class="col-3">Dispositivo</div>
+         <div class="col-1">Disco</div>
+          <div class="col-2">Eliminados</div>
+          <div class="col-2">Fecha</div>
+          <div class="col-2">Tamano</div>
+        </div>
+        <div class="row border-top" *ngFor="let recovery of recoveries">
+          <div class="col-2 text-truncate">{{recovery.user}}</div>
+          <div class="col-3 text-truncate">{{recovery.machine}}</div>
+          <div class="col-1">{{recovery.disk}}</div>
+          <div class="col-2">{{recovery.deleted}}</div>
+          <div class="col-2">{{recovery.date}}</div>
+          <div class="col-2">{{recovery.size}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row justify-content-center ">
+    <div class="col-10 d-flex justify-content-between">
+        <app-go-back></app-go-back>
+      <a class="btn btn-primary" [routerLink]="['/dashboard']">Enviar solicitud</a>
+    </div>
+  </div>
+</div>

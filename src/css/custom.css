@@ -1,0 +1,64 @@
+
+* {
+  font-family:'Roboto','Lato',sans-serif;
+}
+
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+}
+
+a.light {
+  color: white
+}
+
+.bg-grey {
+	background-color: #3f4042;
+  color: white
+}
+
+.header {
+
+	color:white;
+	font-size:20px;
+}
+
+.pagelogo{
+	height: 50px
+}
+
+.debugg {
+	color: green;
+	background-color:red;
+}
+
+
+.row {
+
+	padding-top:10px;
+	padding-bottom:10px
+}
+
+.icon-pair {
+	display:flex;
+	justify-content:flex-start;
+	align-items:center
+}
+
+.clickable:hover {
+  cursor: pointer;
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+

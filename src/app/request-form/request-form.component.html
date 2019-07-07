@@ -1,0 +1,86 @@
+<app-top-bar></app-top-bar>
+<app-breadcrumb></app-breadcrumb>
+<div class="row pt-5 justify-content-center">
+	<div class="col-11">
+		<div class="card" >
+			<div class="card-body px-5">
+				<form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+
+					<div class="row ">
+						<label class="col-3">Contacto de recepcion</label>
+						<div class="col">
+							<input type="text" class="form-control" formControlName="name" placeholder="completo de contacto">
+						</div>
+					</div>
+
+					<div class="row ">
+						<label class="col-3">Telefono de contacto</label>
+						<div class="col">
+              <input type="tel" class="form-control" formControlName="phone" placeholder="+56 9 1234 5678">
+            </div>
+          </div>
+          <hr>
+          <div class="row ">
+            <div class="col">
+            Direccion de envio
+          </div>
+          </div>
+          <div class="row ">
+            <label class="col-3">Ciudad</label>
+            <div class="col">
+              <input type="text" class="form-control" formControlName="city" placeholder="">
+            </div>
+            <label class="col-3">Comuna</label>
+            <div class="col">
+              <input type="text" class="form-control" formControlName="region" placeholder="">
+            </div>
+            </div>
+          <div class="row ">
+            <label class="col-3">Calle</label>
+            <div class="col">
+              <input type="text" class="form-control" formControlName="street" placeholder="">
+            </div>
+            <label class="col-3">Numero</label>
+            <div class="col">
+              <input type="text" class="form-control" formControlName="sNumber" placeholder="">
+            </div>
+          </div>
+          <div class="row ">
+            <label class="col-3">Oficina/departamento/seccion</label>
+            <div class="col">
+              <input type="text" class="form-control" formControlName="other" placeholder="">
+            </div>
+          </div>
+          <hr>
+
+          <div class="row">
+            <label class="col-3" >Motivo</label>
+            <div class="input-group col">
+              <select id="motivos" class="form-control" formControlName="motive" >
+                <option *ngFor="let motivo of motivos" value={{motivo}}>{{motivo}}</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="row ">
+            <label class="col-3">Horario de recepcion</label>
+            <label class="col-1">Desde:</label>
+						<div class="col-2">
+							<input type="time" class="form-control" formControlName="fromTime">
+						</div>
+							<label class="col-1 col-form-label">Hasta:</label>
+							<div class="col-2">
+								<input type="time" class="form-control" formControlName="toTime">
+							</div>
+					</div>
+
+          <div class="row d-flex justify-content-between">
+          <app-go-back></app-go-back>
+          <button class="btn btn-primary" type="submit">Siguiente</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

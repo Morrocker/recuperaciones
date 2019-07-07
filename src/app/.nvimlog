@@ -1,0 +1,2 @@
+ERROR 2019-06-25T18:52:10.583 17602 os_proc_tree_kill:104: getpgid(65303) returned -1
+ERROR 2019-06-25T19:40:06.028 17602 os_proc_tree_kill:104: getpgid(79464) returned -1

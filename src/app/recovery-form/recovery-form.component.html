@@ -1,0 +1,67 @@
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Datos de recuperacion</h4>
+		<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+  <div class="modal-body">
+    <form [formGroup]="recoveryForm" (ngSubmit)="onSubmit()" >
+      <div class="row">
+        <label class="col-3">Usuario</label>
+        <div class="col">
+          <select class="form-control" formControlName="name">
+            <option *ngFor="let user of users" value={{user}}>{{user}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-3" >Dispositivo</label>
+        <div class="col">
+          <select class="form-control" formControlName="machine">
+            <option *ngFor="let machine of machines" value={{machine}}>{{machine}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+      <label class='col-3'>Disco</label>
+      <div class="col">
+        <select class="form-control" formControlName="disk">
+          <option *ngFor="let disk of disks" value={{disk}}>{{disk}}</option>
+        </select>
+      </div>
+      </div>
+      <div class="row justify-content-center">
+        <label class='col-3'>Archivos eliminados</label>
+        <div class="btn-group btn-group-toggle col-9" ngbRadioGroup name="radioBasic" formControlName="deleted">
+          <label ngbButtonLabel class="btn-outline-primary">
+            <input ngbButton type="radio" [value]="false"> Incluir
+          </label>
+          <label ngbButtonLabel class="btn-outline-primary">
+            <input ngbButton type="radio" [value]="false"> No incluir
+          </label>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <label class="col-3" >Fecha de recuperacion</label>
+        <div class="input-group col">
+          <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker" formControlName="recoveryDate">
+          <div class="input-group-append">
+            <button class="btn btn-outline-primary calendar material-icons" (click)="dp.toggle()" type="button"> calendar_today</button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+		<button type="button" class="btn btn-primary" (click)="addRecovery()">Agregar</button>
+    <button type="button" class="btn btn-secondary" (click)="modal.close('Save click')">Borrar</button>
+		<button type="button" class="btn btn-outline-secondary" (click)="modal.close('Save click')">Cerrar</button>
+	</div>
+</ng-template>
+
+<button class="btn btn-primary icon-pair" (click)="open(content)">
+  <span>Agregar recuperacion</span>
+  <i class="material-icons md-24 px-2">cloud_download</i>
+</button>

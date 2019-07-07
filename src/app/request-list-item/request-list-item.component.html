@@ -1,0 +1,13 @@
+<div class="row border-top" *ngFor="let request of requests">
+  <div class="col-6">{{request.id}}</div>
+  <div class="col-2">{{request.rStatus}}</div>
+  <div class="col-2">{{request.rDate}}</div>
+  <div class="col-1">
+    <span>{{request.rSize}}</span>
+  </div>
+  <div class="col-1">
+    <a [routerLink]="['/request/base']">
+      <i class="material-icons md-24 md-dark">description</i>
+    </a>
+  </div>
+</div>
