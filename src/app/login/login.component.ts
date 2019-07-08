@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ILogin } from '../login';
+
+import { ILogin, LoginResp  } from '../login';
+import { LoginService  } from '../login.service';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -11,26 +13,26 @@ import { AuthService } from '../auth.service';
 })
 
 export class LoginComponent implements OnInit {
-  model: ILogin = { userid: 'admin@cloner.cl', password: 'admin123' };
+  loginResp: LoginResp;
   loginForm: FormGroup;
+  formData = new ILogin();
   message: string;
-  returnUrl: string;
+  returnUrl = '/dashboard';
   loginState: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    public authService: AuthService
+    public authService: AuthService,
+    private loginService: LoginService,
   ) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      userid: ['', Validators.required],
+      userId: ['', Validators.required],
       password: ['', Validators.required]
     });
-    this.returnUrl = '/dashboard';
     this.authService.logout();
-    this.loginState = localStorage.getItem('isLoggedIn');
   }
 
   // convenience getter for easy access to form fields
@@ -41,12 +43,14 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
         return;
     } else {
-      if (this.f.userid.value === this.model.userid && this.f.password.value === this.model.password) {
+      this.formData = this.loginForm.value;
+      this.loginService.requestLogin(this.formData).subscribe( resp => this.loginResp = resp );
+      if ( this.loginResp.authLogin === true ) {
         console.log('Login successful');
         // this.authService.authLogin(this.model);
         localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('token', this.f.userid.value);
         localStorage.setItem('userId', '1');
+        localStorage.setItem('isAdmin', `${this.loginResp.isAdmin}`);
         this.router.navigate([this.returnUrl]);
       } else {
         this.message = 'Verificar correo o contrasena';

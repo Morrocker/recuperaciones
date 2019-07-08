@@ -19,16 +19,14 @@
           <div class="col-1">{{recovery.disk}}</div>
           <div class="col-2">{{recovery.deleted}}</div>
           <div class="col-2">{{recovery.date}}</div>
-          <div class="col-1">{{recovery.size}}</div>
-          <div class="col-1">
-            <i class="material-icons md-24 md-dark px-2">delete</i>
+          <div class="col-2">
+            <i class="material-icons md-24 md-dark px-2 clickable" (click)="removeRecovery(recovery)">delete</i>
           </div>
         </div>
 
         <div class="container-fluid">
           <div class="row d-flex justify-content-between">
             <app-go-back></app-go-back>
-            <!-- <app-recovery-form></app-recovery-form> -->
 
             <ng-template #content let-modal>
               <div class="modal-header">
@@ -42,7 +40,7 @@
                   <div class="row">
                     <label class="col-3">Usuario</label>
                     <div class="col">
-                      <select class="form-control" formControlName="name">
+                      <select class="form-control" formControlName="user">
                         <option *ngFor="let user of users" value={{user}}>{{user}}</option>
                       </select>
                     </div>
@@ -70,7 +68,7 @@
                   <div class="row justify-content-center">
                     <label class="col-3" >Fecha de recuperacion</label>
                     <div class="input-group col">
-                      <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker" formControlName="recoveryDate">
+                      <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker" formControlName="date">
                       <div class="input-group-append">
                         <button class="btn btn-outline-primary calendar material-icons" (click)="dp.toggle()" type="button"> calendar_today</button>
                       </div>
@@ -90,7 +88,7 @@
               <span>Agregar recuperacion</span>
               <i class="material-icons md-24 px-2">cloud_download</i>
             </button>
-            <a class="btn btn-primary" [routerLink]="['/request/summary']">Continuar</a>
+            <button class="btn btn-primary" (click)="sendRecoveries()">Continuar</button>
           </div>
         </div>
       </div>

@@ -31,7 +31,7 @@ export class RequestsService {
   }
 
 
-
+// Get methods
   getRequests(): Observable<Request[]> {
     return this.http.get<Request[]>(this.requestsUrl)
     .pipe(
@@ -52,11 +52,14 @@ export class RequestsService {
       catchError(this.handleError<Request2[]>('getRequests', []))
     );
   }
-  sendTempRequest(newRequest: any): Observable<any> {
+
+
+  // Post methods
+  sendTempRequest(newRequest: any): Observable<number> {
     return this.http
-    .post<any>('api/newRequest', newRequest, httpOptions)
+    .post<number>('api/newRequest', newRequest, httpOptions)
     .pipe(
-      catchError(this.handleError<any>('newRequest'))
+      catchError(this.handleError<number>('newRequest'))
     );
   }
 

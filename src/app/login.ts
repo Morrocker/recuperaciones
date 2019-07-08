@@ -1,5 +1,5 @@
 export class ILogin {
-    userid: string;
+    userId: string;
     password: string;
 }
 

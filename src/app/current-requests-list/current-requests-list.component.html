@@ -6,11 +6,7 @@
           <div class="col-6">Id</div>
           <div class="col-2">Estado</div>
           <div class="col-2">Fecha de solicitud</div>
-          <div class="col-1">
-              <span>Tamano</span>
-          </div>
-          <div class="col-1">
-          </div>
+          <div class="col-1">Tamano</div>
         </div>
 
         <div class="row border-top" *ngFor="let request of requests">
@@ -22,7 +18,7 @@
           </div>
           <div class="col-1">
             <a routerLink="/request/{{request.id}}">
-            <i class="material-icons md-24 md-dark">description</i>
+              <i class="material-icons md-24 md-dark">description</i>
             </a>
           </div>
         </div>

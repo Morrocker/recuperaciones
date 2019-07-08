@@ -11,40 +11,24 @@
     <div class="card" >
       <div class="card-header d-flex justify-content-between">
         <span>Resumen</span>
-        <a href="#" class="btn icon-pair justify-content-center btn-primary">
+        <button href="#" class="btn icon-pair justify-content-center btn-primary">
           <i class="material-icons md-24 md-light px-2">local_shipping</i>
           <span>Datos de envio</span>
-        </a>
+        </button>
       </div>
       <div class="card-body px-5">
         <div class="row ">
-          <div class="col">
-            Archivos recuperados/totales:
-          </div>
-          <div class="col">
-            {{request.delivery.cName}}
-          </div>
-          <div class="col">
-            Tamano recuperado/total:
-          </div>
-          <div class="col">
-            {{request.delivery.cPhone}}
-          </div>
+          <div class="col"> Archivos recuperados/totales: </div>
+          <div class="col"> {{request.delivery.cName}} </div>
+          <div class="col"> Tamano recuperado/total: </div>
+          <div class="col"> {{request.delivery.cPhone}} </div>
         </div>
         <hr>
         <div class="row ">
-          <div class="col">
-            Fecha de solicitud:
-          </div>
-          <div class="col">
-            {{request.motive}}
-          </div>
-          <div class="col">
-            Estado:
-          </div>
-          <div class="col">
-            {{request.delivery.fromTime}} : {{request.delivery.toTime}}
-          </div>
+          <div class="col"> Fecha de solicitud: </div>
+          <div class="col"> {{request.motive}} </div>
+          <div class="col"> Estado: </div>
+          <div class="col"> {{request.delivery.fromTime}} : {{request.delivery.toTime}} </div>
         </div>
       </div>
     </div>
@@ -54,27 +38,26 @@
 <div class="row justify-content-center">
   <div class="col-11">
     <div class="card" >
-      <div class="card-header px-5">
-        Lista de recuperaciones
-      </div>
+      <div class="card-header px-5"> Lista de recuperaciones </div>
       <div class="card-body px-5">
         <div class="row ">
           <div class="col-2">Usuario</div>
-          <div class="col-4">Dispositivo</div>
-         <div class="col-1">Disco</div>
+          <div class="col-3">Dispositivo</div>
+          <div class="col-1">Disco</div>
           <div class="col-2">Archivos totales/recuperados</div>
           <div class="col-2">Tamano recuperado/total</div>
+          <div class="col-2">Acciones</div>
         </div>
         <div class="row border-top" *ngFor="let recovery of recoveries">
           <div class="col-2 text-truncate">{{recovery.user}}</div>
-          <div class="col-4 text-truncate">{{recovery.machine}}</div>
+          <div class="col-3 text-truncate">{{recovery.machine}}</div>
           <div class="col-1">{{recovery.disk}}</div>
           <div class="col-2">{{recovery.deleted}}</div>
           <div class="col-2">{{recovery.date}}</div>
-          <div class="col-1">
-      <i class="material-icons md-24 px-2" >description</i>
-      <i class="material-icons md-24 px-2" (click)="cancelRecovery(recovery.id, recovery)" >delete</i>
-        </div>
+          <div class="col-2 justify-content-end">
+            <i class="material-icons md-24 px-2 clickable" >description</i>
+            <i class="material-icons md-24 px-2 clickable" (click)="cancelRecovery(recovery.id, recovery)" >delete</i>
+          </div>
         </div>
       </div>
     </div>
@@ -82,6 +65,6 @@
 </div>
 <div class="row justify-content-center">
   <div class="col-11 d-flex justify-content-center">
-  <app-go-back></app-go-back>
-</div>
+    <app-go-back></app-go-back>
+  </div>
 </div>

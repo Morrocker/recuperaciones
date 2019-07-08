@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Router} from '@angular/router';
+
 import { Request, Recovery } from '../classes';
 import { RecoveriesService } from '../recoveries.service';
 import { RequestsService } from '../requests.service';
@@ -19,17 +20,21 @@ export class RequestSummaryComponent implements OnInit {
   id = +this.route.snapshot.paramMap.get('id');
 
   getRequest(n: number): void {
-    this.requestService.getRequest(n)
+    this
+    .requestService.getRequest(n)
     .subscribe( request => this.request = request);
   }
 
   getRecoveries(): void {
-    this.recoveriesService.getRecoveriesByRequest(this.id)
-      .subscribe( recoveries => this.recoveries = recoveries);
+    this
+    .recoveriesService.getRecoveriesByRequest(this.id)
+    .subscribe( recoveries => this.recoveries = recoveries);
   }
 
   sendFullRequest(): void {
-    this.requestService.sendFullRequest(this.request, this.recoveries).subscribe();
+    this
+    .requestService.sendFullRequest(this.request, this.recoveries)
+    .subscribe();
     this.router.navigateByUrl('/dashboard');
   }
 
@@ -41,8 +46,7 @@ export class RequestSummaryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getRequest(2);
+    this.getRequest(this.id);
     this.getRecoveries();
-
   }
 }

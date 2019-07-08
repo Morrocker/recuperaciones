@@ -1,21 +1,20 @@
 <app-top-bar></app-top-bar>
 <div class="container-fluid justify-content-center">
-<div class="row">
-  <div class="col-5 px-5">
-    <h3>Historial de recuperaciones solicitadas</h3>
+  <div class="row">
+    <div class="col-5 px-5">
+      <h3>Historial de recuperaciones solicitadas</h3>
+    </div>
+    <div class="col-5">
+    </div>
+    <div>
+      <span>
+        <a [routerLink]="['/request/base']" class="icon-pair btn btn-primary">
+          <i class="material-icons md-24 md-light ">add_circle_outline</i>
+          <span>Nueva solicitud</span>
+        </a>
+      </span>
+    </div>
   </div>
-  <div class="col-5">
-  </div>
-
-  <div>
-    <span>
-    <a [routerLink]="['/request/base']" class="icon-pair btn btn-primary">
-    <i class="material-icons md-24 md-light ">add_circle_outline</i>
-    <span>Nueva solicitud</span>
-    </a>
-    </span>
-  </div>
-</div>
 </div>
 <app-current-requests-list ></app-current-requests-list>
 

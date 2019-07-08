@@ -52,6 +52,14 @@ export class RecoveriesService {
     );
   }
 
+  addNewRecoveries(recoveries: NewRecovery[], requestId: number) {
+    return this.http
+      .post(`api/newrecoveries/${ requestId }`, recoveries, httpOptions)
+      .pipe(
+      catchError(this.handleError('addRecovery'))
+    );
+  }
+
 
   cancelRecovery(id: number) {
     return this.http

@@ -1,29 +1,28 @@
 <app-top-bar></app-top-bar>
 <app-breadcrumb></app-breadcrumb>
 <div class="row pt-5 justify-content-center">
-	<div class="col-11">
-		<div class="card" >
-			<div class="card-body px-5">
-				<form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+  <div class="col-11">
+    <div class="card" >
+      <div class="card-body px-5">
+        <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
 
-					<div class="row ">
-						<label class="col-3">Contacto de recepcion</label>
-						<div class="col">
-							<input type="text" class="form-control" formControlName="name" placeholder="completo de contacto" required>
-						</div>
-					</div>
+          <div class="row ">
+            <label class="col-3">Contacto de recepcion</label>
+            <div class="col">
+              <input type="text" class="form-control" formControlName="name" placeholder="completo de contacto" required>
+            </div>
+          </div>
 
-					<div class="row ">
-						<label class="col-3">Telefono de contacto</label>
-						<div class="col">
+          <div class="row ">
+            <label class="col-3">Telefono de contacto</label>
+            <div class="col">
               <input type="tel" class="form-control" formControlName="phone" placeholder="+56 9 1234 5678" required>
             </div>
           </div>
           <hr>
+
           <div class="row ">
-            <div class="col">
-            Direccion de envio
-          </div>
+            <div class="col"> Direccion de envio </div>
           </div>
           <div class="row ">
             <label class="col-3">Ciudad</label>
@@ -34,7 +33,7 @@
             <div class="col">
               <input type="text" class="form-control" formControlName="region" placeholder="" required>
             </div>
-            </div>
+          </div>
           <div class="row ">
             <label class="col-3">Calle</label>
             <div class="col">
@@ -61,26 +60,24 @@
               </select>
             </div>
           </div>
-
-
           <div class="row ">
             <label class="col-3">Horario de recepcion</label>
             <label class="col-1">Desde:</label>
-						<div class="col-2">
-							<input type="time" class="form-control" formControlName="fromTime" required>
-						</div>
-							<label class="col-1 col-form-label">Hasta:</label>
-							<div class="col-2">
-								<input type="time" class="form-control" formControlName="toTime" required>
-							</div>
-					</div>
+            <div class="col-2">
+              <input type="time" class="form-control" formControlName="fromTime" required>
+            </div>
+            <label class="col-1 col-form-label">Hasta:</label>
+            <div class="col-2">
+              <input type="time" class="form-control" formControlName="toTime" required>
+            </div>
+          </div>
 
           <div class="row d-flex justify-content-between">
-          <app-go-back></app-go-back>
-          <button class="btn btn-primary" type="submit">Siguiente</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+            <app-go-back></app-go-back>
+            <button class="btn btn-primary" type="submit">Siguiente</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

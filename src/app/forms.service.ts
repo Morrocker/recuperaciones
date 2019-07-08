@@ -32,14 +32,14 @@ export class FormsService {
       catchError(this.handleError<string[]>('getRecoveries', []))
     );
   }
-  getMachines(userId: number): Observable<string[]> {
-    return this.http.get<string[]>(`api/machines/${userId}`)
+  getMachines(userName: string): Observable<string[]> {
+    return this.http.get<string[]>(`api/machines/${userName}`)
     .pipe(
       catchError(this.handleError<string[]>('getRecoveries', []))
     );
   }
-  getDisks(machineId: number): Observable<string[]> {
-    return this.http.get<string[]>(`api/disk/${machineId}`)
+  getDisks(machineName: number): Observable<string[]> {
+    return this.http.get<string[]>(`api/disk/${machineName}`)
     .pipe(
       catchError(this.handleError<string[]>('getRecoveries', []))
     );

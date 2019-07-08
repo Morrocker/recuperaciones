@@ -39,11 +39,11 @@ export class Recovery {
 }
 
 export class NewRecovery {
-  name: string;
+  user: string;
   machine: string;
   disk: string;
   deleted: boolean;
-  recoveryDate: string;
+  date: string;
 }
 
 export class Login {

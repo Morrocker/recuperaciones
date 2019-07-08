@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
+
 import { ILogin, LoginResp } from './login';
 
 const httpOptions = {
@@ -17,6 +19,7 @@ export class LoginService {
   constructor(
     private http: HttpClient,
   ) { }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
@@ -26,8 +29,9 @@ export class LoginService {
     };
   }
 
-  getRequests(login: ILogin): Observable<LoginResp> {
-    return this.http.get<LoginResp>(this.requestsUrl)
+  requestLogin(login: ILogin): Observable<LoginResp> {
+    return this.http
+    .post<LoginResp>(this.requestsUrl, login, httpOptions)
     .pipe(
       catchError(this.handleError<LoginResp>('Login'))
     );
