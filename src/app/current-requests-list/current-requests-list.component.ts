@@ -12,11 +12,12 @@ import { RequestsService } from '../requests.service';
 
 export class CurrentRequestsListComponent implements OnInit {
   requests: Request[];
+  userId = parseInt(localStorage.getItem('userId'), 10);
 
   getRequests(): void {
     this
       .requestsService
-      .getRequestsByUser( parseInt(localStorage.getItem('userId'), 10) )
+      .getRequestsByUser( this.userId )
       .subscribe( requests => this.requests = requests );
   }
 
@@ -25,7 +26,7 @@ export class CurrentRequestsListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    localStorage.setItem('userId', '1');
+    // localStorage.setItem('userId', '1');
     this.getRequests();
   }
 }

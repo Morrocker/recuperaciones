@@ -17,23 +17,24 @@ export class RequestSummaryComponent implements OnInit {
   request: Request;
   recoveries: Recovery[];
   newRequests: Request[];
-  id = +this.route.snapshot.paramMap.get('id');
+  requestId = +this.route.snapshot.paramMap.get('reqId');
+  userId = parseInt(localStorage.getItem('userId'), 10);
 
-  getRequest(n: number): void {
+  getRequest(): void {
     this
-    .requestService.getRequest(n)
+    .requestService.getRequest(this.requestId)
     .subscribe( request => this.request = request);
   }
 
   getRecoveries(): void {
     this
-    .recoveriesService.getRecoveriesByRequest(this.id)
+    .recoveriesService.getRecoveriesByRequest(this.requestId)
     .subscribe( recoveries => this.recoveries = recoveries);
   }
 
-  sendFullRequest(): void {
+  confirmRequest(): void {
     this
-    .requestService.sendFullRequest(this.request, this.recoveries)
+    .requestService.confirmRequest(this.requestId, this.userId)
     .subscribe();
     this.router.navigateByUrl('/dashboard');
   }
@@ -46,7 +47,7 @@ export class RequestSummaryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getRequest(this.id);
+    this.getRequest();
     this.getRecoveries();
   }
 }

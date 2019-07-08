@@ -19,9 +19,9 @@ export class RequestListComponent implements OnInit {
   machines: string[] = [];
   disks: string[] = [];
   recoveries: NewRecovery[] = [];
-  localUserId = localStorage.getItem('userId');
+  localUserId = parseInt(localStorage.getItem('userId'), 10);
   formData = new NewRecovery();
-  id = +this.route.snapshot.paramMap.get('id');
+  requestId = +this.route.snapshot.paramMap.get('reqId');
 
   model = {
     left: true,
@@ -67,7 +67,7 @@ export class RequestListComponent implements OnInit {
 
   getUsers() {
     this
-      .formsService.getUsers(parseInt(this.localUserId, 10))
+      .formsService.getUsers(this.localUserId)
       .subscribe( users => this.users = users );
   }
 
@@ -106,10 +106,10 @@ export class RequestListComponent implements OnInit {
   sendRecoveries() {
     this
       .recoveriesService
-      .addNewRecoveries(this.recoveries, this.id)
+      .addNewRecoveries(this.recoveries, this.requestId)
       .subscribe();
     this
-      .router.navigateByUrl(`request/summary/${this.id}`);
+      .router.navigateByUrl(`request/summary/${this.requestId}`);
   }
 
   constructor(
@@ -125,5 +125,4 @@ export class RequestListComponent implements OnInit {
     this.getUsers();
     this.onChanges();
   }
-
 }

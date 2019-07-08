@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { RequestsService } from '../requests.service';
 
@@ -18,8 +18,8 @@ const MOT = [
 
 export class RequestFormComponent implements OnInit {
   motivos;
-  machines;
-  id = 1;
+  requestId;
+  userId = +this.route.snapshot.paramMap.get('id');
   requestForm = this.formBuilder.group({
       name: ['', Validators.required],
       phone: ['', Validators.required],
@@ -36,12 +36,12 @@ export class RequestFormComponent implements OnInit {
   onSubmit(): void {
     this
     .requestService
-    .sendTempRequest(this.requestForm)
-    .subscribe( newRequestId => this.id = newRequestId );
+    .sendTempRequest(this.requestForm, this.userId)
+    .subscribe( newRequestId => this.requestId = newRequestId );
 
     this
     // .router.navigateByUrl(`/request/list/${this.requestId}`);
-    .router.navigateByUrl(`request/list`);
+    .router.navigateByUrl(`request/list/${this.requestId}`);
   }
 
   // clearForm(): void {
@@ -62,6 +62,7 @@ export class RequestFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private route: ActivatedRoute,
     private requestService: RequestsService
   ) {
   }

@@ -6,4 +6,5 @@ export class ILogin {
 export class LoginResp {
   authLogin: boolean;
   isAdmin: boolean;
+  userId: number;
 }

@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   formData = new ILogin();
   message: string;
-  returnUrl = '/dashboard';
   loginState: string;
+  id;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -49,9 +49,9 @@ export class LoginComponent implements OnInit {
         console.log('Login successful');
         // this.authService.authLogin(this.model);
         localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('userId', '1');
+        localStorage.setItem('userId', `${this.loginResp.userId}`);
         localStorage.setItem('isAdmin', `${this.loginResp.isAdmin}`);
-        this.router.navigate([this.returnUrl]);
+        this.router.navigate([`/dashboard`]);
       } else {
         this.message = 'Verificar correo o contrasena';
       }

@@ -15,30 +15,30 @@ import { RequestsService } from '../requests.service';
 export class RequestDetailsComponent implements OnInit {
   request: Request;
   recoveries: Recovery[];
-  id = +this.route.snapshot.paramMap.get('id');
+  requestId = +this.route.snapshot.paramMap.get('reqId');
 
   getRequest(): void {
     this
-    .requestService.getRequest(this.id)
+    .requestService.getRequest(this.requestId)
     .subscribe( request => this.request = request);
   }
 
   getRecoveries(): void {
     this
-    .recoveriesService.getRecoveriesByRequest(this.id)
+    .recoveriesService.getRecoveriesByRequest(this.requestId)
     .subscribe( recoveries => this.recoveries = recoveries);
   }
 
   startRequest(): void {
     this
-    .requestService.startRequest(this.id).subscribe();
+    .requestService.startRequest(this.requestId).subscribe();
     this
     .router.navigateByUrl('/dashboard');
   }
 
   cancelRequest(): void {
     this
-    .requestService.cancelRequest(this.id)
+    .requestService.cancelRequest(this.requestId)
     .subscribe();
     this
     .router.navigateByUrl('/dashboard');
@@ -46,7 +46,7 @@ export class RequestDetailsComponent implements OnInit {
 
   cancelRecovery(recoveryId: number, recovery: Recovery): void {
     this
-    .recoveriesService.cancelRecovery(this.id)
+    .recoveriesService.cancelRecovery(this.requestId)
     .subscribe();
     this
     .recoveries = this.recoveries.filter( r => r !== recovery);

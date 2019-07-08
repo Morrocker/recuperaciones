@@ -55,23 +55,19 @@ export class RequestsService {
 
 
   // Post methods
-  sendTempRequest(newRequest: any): Observable<number> {
+  sendTempRequest(newRequest: any, userId: number): Observable<number> {
     return this.http
-    .post<number>('api/newRequest', newRequest, httpOptions)
+    .post<number>(`api/newRequest/${userId}`, newRequest, httpOptions)
     .pipe(
       catchError(this.handleError<number>('newRequest'))
     );
   }
 
-  sendFullRequest(newRequest: Request, newRecoveries: Recovery[]) {
-    const fullRequest = {
-      requestData: newRequest,
-      recoveries: newRecoveries,
-    };
+  confirmRequest(requestId: number, userId: number) {
     return this.http
-    .post<any>('api/newRequest', fullRequest, httpOptions)
+    .post(`api/newRequest/${userId}`, requestId, httpOptions)
     .pipe(
-      catchError(this.handleError<any>('newRequest'))
+      catchError(this.handleError('newRequest'))
     );
   }
 
