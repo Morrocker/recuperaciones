@@ -45,5 +45,4 @@ export class RequestSummaryComponent implements OnInit {
     this.getRecoveries();
 
   }
-
 }
