@@ -60,7 +60,7 @@ export class RequestsService {
   sendTempRequest(recepcion: Delivery, userId: number): Observable<number> {
     return this.http
     // .post<number>(`localhost:5050/cloner/recepcion/${userId}`, recepcion, httpOptions)
-    .post<number>(`localhost:5050/cloner/recepcion`, recepcion, httpOptions)
+    .post<number>(`http://localhost:5050/cloner/recepcion`, recepcion, httpOptions)
     .pipe(
       catchError(this.handleError<number>('newRequest'))
     );
