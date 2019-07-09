@@ -69,7 +69,6 @@ export class RequestFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.motivos = MOT;
   }
 
 
