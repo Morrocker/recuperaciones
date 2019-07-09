@@ -17,7 +17,7 @@
         </div>
 
         <div class="row border-top" *ngFor="let recovery of recoveries">
-          <div class="col">{{recovery.correo}}</div>
+          <div class="col">{{recovery.recuperacionId}}</div>
           <div class="col">{{recovery.rStatus}}</div>
           <div class="col">{{recovery.rDate}}{{this.foo}}</div>
           <div class="col">
@@ -40,7 +40,7 @@
         </div>
 
         <div class="row border-top" *ngFor="let request of requests">
-          <div class="col">{{request.nombre}}</div>
+          <div class="col">{{request.id}}</div>
           <div class="col">{{request.rStatus}}</div>
           <div class="col">{{request.rDate}}{{this.foo}}</div>
           <div class="col">
