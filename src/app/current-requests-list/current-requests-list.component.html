@@ -10,18 +10,18 @@
     <div class="card" >
       <div class="card-body px-5">
         <div class="row ">
-          <div class="col">correo</div>
+          <div class="col">Id de recuperacion</div>
           <div class="col">equipo</div>
           <div class="col">disco</div>
-          <div class="col">incluir eliminados</div>
+          <div class="col">fecha de respaldo</div>
         </div>
 
         <div class="row border-top" *ngFor="let recovery of recoveries">
           <div class="col">{{recovery.recuperacionId}}</div>
-          <div class="col">{{recovery.rStatus}}</div>
-          <div class="col">{{recovery.rDate}}{{this.foo}}</div>
+          <div class="col">{{recovery.equipo}}</div>
+          <div class="col">{{recovery.unidad}}{{this.foo}}</div>
           <div class="col">
-            <span>{{recovery.rSize}}</span>
+            <span>{{recovery.fechaRespaldo}}</span>
           </div>
         </div>
       </div>
@@ -44,7 +44,7 @@
           <div class="col">{{request.fono}}</div>
           <div class="col">{{request.ciudad}}, {{request.comuna}}, {{request.direccion}}</div>
           <div class="col">
-            <span>{{request.horarioDesde}}:{{request.horarioHasta}}</span>
+            <span>{{request.horarioDesde}} / {{request.horarioHasta}}</span>
           </div>
         </div>
       </div>
