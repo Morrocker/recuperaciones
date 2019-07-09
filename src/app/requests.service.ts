@@ -32,13 +32,19 @@ export class RequestsService {
 
 
 // Get methods
-  getRequests(): Observable<Request[]> {
-    return this.http.get<Request[]>(this.requestsUrl)
+  getRequests(): Observable<any[]> {
+    return this.http.get<any[]>(this.requestsUrl)
     .pipe(
-      catchError(this.handleError<Request[]>('getRequests', []))
+      catchError(this.handleError<any[]>('getRequests', []))
     );
   }
 
+  getRequests2(): Observable<any[]> {
+    return this.http.get<any[]>(`localhost:5050/cloner/recuperacion`)
+    .pipe(
+      catchError(this.handleError<any[]>('getRequests', []))
+    );
+  }
   getRequest(id: number): Observable<Request> {
     const url = `localhost:5050/cloner/requests/${id}`;
     return this.http.get<Request>(url)
@@ -76,18 +82,18 @@ export class RequestsService {
     );
   }
 
-  cancelRequest(id: number) {
-    return this.http
-    .post<any>('api/cancelRequest', id, httpOptions)
-    .pipe(
-      catchError(this.handleError<any>('newRequest'))
-    );
-  }
-  startRequest(id: number) {
-    return this.http
-    .post<any>('api/startRequest', id, httpOptions)
-    .pipe(
-      catchError(this.handleError<any>('newRequest'))
-    );
-  }
+//   cancelRequest(id: number) {
+//     return this.http
+//     .post<any>('api/cancelRequest', id, httpOptions)
+//     .pipe(
+//       catchError(this.handleError<any>('newRequest'))
+//     );
+//   }
+//   startRequest(id: number) {
+//     return this.http
+//     .post<any>('api/startRequest', id, httpOptions)
+//     .pipe(
+//       catchError(this.handleError<any>('newRequest'))
+//     );
+//   }
 }

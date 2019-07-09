@@ -1,25 +1,50 @@
+
+<div class="row ">
+  <div class="col-10 offset-1 d-flex justify-content-between">
+    <button class="btn btn-primary" type="button" (click)="getRequests()">Obtener Solicitudes</button>
+    <button class="btn btn-primary" type="button" (click)="getRecoveries()">Obtener Recuperaciones</button>
+    </div>
+</div>
 <div class="row justify-content-center">
   <div class="col-11">
     <div class="card" >
       <div class="card-body px-5">
         <div class="row ">
-          <div class="col-6">Id</div>
-          <div class="col-2">Estado</div>
-          <div class="col-2">Fecha de solicitud</div>
-          <div class="col-1">Tamano</div>
+          <div class="col">correo</div>
+          <div class="col">equipo</div>
+          <div class="col">disco</div>
+          <div class="col">incluir eliminados</div>
         </div>
 
         <div class="row border-top" *ngFor="let request of requests">
-          <div class="col-6">{{request.id}}</div>
-          <div class="col-2">{{request.rStatus}}</div>
-          <div class="col-2">{{request.rDate}}{{this.foo}}</div>
-          <div class="col-1">
+          <div class="col">{{request.id}}</div>
+          <div class="col">{{request.rStatus}}</div>
+          <div class="col">{{request.rDate}}{{this.foo}}</div>
+          <div class="col">
             <span>{{request.rSize}}</span>
           </div>
-          <div class="col-1">
-            <a routerLink="/request/{{request.id}}">
-              <i class="material-icons md-24 md-dark">description</i>
-            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-11">
+    <div class="card" >
+      <div class="card-body px-5">
+        <div class="row ">
+          <div class="col">Nombre contacto</div>
+          <div class="col">Telefono contacto</div>
+          <div class="col">Direccion</div>
+          <div class="col">Horario</div>
+        </div>
+
+        <div class="row border-top" *ngFor="let delivery of deliveries">
+          <div class="col">{{request.id}}</div>
+          <div class="col">{{request.rStatus}}</div>
+          <div class="col">{{request.rDate}}{{this.foo}}</div>
+          <div class="col">
+            <span>{{request.rSize}}</span>
           </div>
         </div>
       </div>

@@ -19,6 +19,23 @@ export class Request {
   rSize: string;
 }
 
+export class FullRecovery {
+    recuperacionId: number;
+    fechaRespaldo: string;
+    eliminado: boolean;
+    fechaHoraInicio: string;
+    fechaHoraTermino: string;
+    archivosTotales: string;
+    archivosRecuperados: string;
+    tamanoTotales: string;
+    tamanoRecuperado: string;
+    usuarioId: number;
+    repositorioId: number;
+    equipo: string;
+    unidad: null;
+    solicitudId: number;
+}
+
 export class Machine {
   id: number;
   nombre: string;

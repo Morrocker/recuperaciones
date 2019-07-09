@@ -91,11 +91,11 @@ export class LoginService {
         break;
       }
       default: {
-          return {
-            authLogin: false,
-            isAdmin: false,
-            userId: 0
-          };
+        return {
+          authLogin: false,
+          isAdmin: false,
+          userId: 0
+        };
         break;
       }
     }

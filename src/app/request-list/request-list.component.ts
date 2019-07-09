@@ -5,7 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { NewRecovery } from '../classes';
 import { FormsService } from '../forms.service';
-import { Recovery } from '../classes';
+import { Recovery, FullRecovery } from '../classes';
 import { RecoveriesService } from '../recoveries.service';
 
 @Component({
@@ -40,6 +40,7 @@ export class RequestListComponent implements OnInit {
 
   users;
   machines;
+  recoveryData: FullRecovery;
   disks: string[] = [];
   recoveries: NewRecovery[] = [];
   localUserId = parseInt(localStorage.getItem('userId'), 10);
@@ -69,8 +70,8 @@ export class RequestListComponent implements OnInit {
   //
   addRecovery() {
     this.formData = this.recoveryForm.value;
-    this.recoveries
-      .push( this.formData );
+    this.recoveryData.fechaRespaldo = this.formData.date;
+    this.recoveryData.eliminado = this.formData.deleted;
     this.clearForm();
   }
 

@@ -65,11 +65,8 @@ export class RecoveryFormComponent implements OnInit {
     this.disks = DISK;
   }
 
-  add(): void {
-    this.formData = this.recoveryForm.value;
-    this.recoveriesService.addNewRecovery(this.formData).subscribe();
-
-  }
-
-
+  // add(): void {
+  //   this.formData = this.recoveryForm.value;
+  //   this.recoveriesService.addNewRecovery(this.formData).subscribe();
+  // }
 }

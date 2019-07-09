@@ -29,28 +29,28 @@ export class RequestDetailsComponent implements OnInit {
     .subscribe( recoveries => this.recoveries = recoveries);
   }
 
-  startRequest(): void {
-    this
-    .requestService.startRequest(this.requestId).subscribe();
-    this
-    .router.navigateByUrl('/dashboard');
-  }
+  // startRequest(): void {
+  //   this
+  //   .requestService.startRequest(this.requestId).subscribe();
+  //   this
+  //   .router.navigateByUrl('/dashboard');
+  // }
 
-  cancelRequest(): void {
-    this
-    .requestService.cancelRequest(this.requestId)
-    .subscribe();
-    this
-    .router.navigateByUrl('/dashboard');
-  }
+  // cancelRequest(): void {
+  //   this
+  //   .requestService.cancelRequest(this.requestId)
+  //   .subscribe();
+  //   this
+  //   .router.navigateByUrl('/dashboard');
+  // }
 
-  cancelRecovery(recoveryId: number, recovery: Recovery): void {
-    this
-    .recoveriesService.cancelRecovery(this.requestId)
-    .subscribe();
-    this
-    .recoveries = this.recoveries.filter( r => r !== recovery);
-  }
+  // cancelRecovery(recoveryId: number, recovery: Recovery): void {
+  //   this
+  //   .recoveriesService.cancelRecovery(this.requestId)
+  //   .subscribe();
+  //   this
+  //   .recoveries = this.recoveries.filter( r => r !== recovery);
+  // }
 
   constructor(
     private route: ActivatedRoute,
