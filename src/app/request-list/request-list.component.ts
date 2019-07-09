@@ -91,11 +91,15 @@ export class RequestListComponent implements OnInit {
 
   onChanges() {
     this.recoveryForm.valueChanges
-      .subscribe(val => {
-      this.getMachines(this.users.filter(obj => {
-  return obj.correo === this.recoveryForm.get('name').value; }));
-      // this.getDisks(val.machine);
-    });
+      .subscribe(() => {
+        this.getMachines(
+          this.users.filter(obj => {
+            return obj.correo === this.recoveryForm.get('name').value;
+          }
+          )
+        );
+        // this.getDisks(val.machine);
+      });
   }
 
   open(content) {
