@@ -40,11 +40,11 @@
         </div>
 
         <div class="row border-top" *ngFor="let request of requests">
-          <div class="col">{{request.id}}</div>
-          <div class="col">{{request.rStatus}}</div>
-          <div class="col">{{request.rDate}}{{this.foo}}</div>
+          <div class="col">{{request.nombreRecepcion}}</div>
+          <div class="col">{{request.fono}}</div>
+          <div class="col">{{request.ciudad}}, {{request.comuna}}, {{request.direccion}}</div>
           <div class="col">
-            <span>{{request.rSize}}</span>
+            <span>{{request.horarioDesde}}:{{request.horarioHasta}}</span>
           </div>
         </div>
       </div>
