@@ -71,12 +71,12 @@ export class RequestListComponent implements OnInit {
       .subscribe( users => this.users = users );
   }
 
-  getMachines(user) {
+  getMachines() {
     console.log('getMachines andando');
-    console.log(this.recoveryForm.value);
-    console.log(this.users);
-    console.log(this.recoveryForm.get('name').value);
-    console.log(this.users.filter(singleUser => singleUser.correo === 'ignacio@usm.cl' ));
+    // console.log(this.recoveryForm.value);
+    // console.log(this.users);
+    // console.log(this.recoveryForm.get('name').value);
+    // console.log(this.users.filter(singleUser => singleUser.correo === 'ignacio@usm.cl' ));
     // if (user !== '') {
     //   this
     //     .formsService.getMachines(user.id)
@@ -87,17 +87,18 @@ export class RequestListComponent implements OnInit {
   }
 
   getDisks(machineName: string) {
-    if (machineName !== '') {
-      this
-        .formsService.getMachines(machineName)
-        .subscribe( disks => this.disks );
-    }
+    // if (machineName !== '') {
+    //   this
+    //     .formsService.getMachines(machineName)
+    //     .subscribe( disks => this.disks );
+    // }
   }
 
   onChanges() {
     this.recoveryForm.valueChanges
       .subscribe(() => {
-        console.log('funciona algo');
+        this.getMachines();
+        console.log('funciona onChanges');
         }
         // this.getDisks(val.machine);
       );
