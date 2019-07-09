@@ -44,6 +44,9 @@ export class RequestFormComponent implements OnInit {
     // .router.navigateByUrl(`/request/list/${this.requestId}`);
     .router.navigateByUrl(`dashboard`);
   }
+   back(): void {
+    this.router.navigateByUrl(`dashboard`);
+   }
 
   // clearForm(): void {
   //   this.requestForm = this.formBuilder.group({
