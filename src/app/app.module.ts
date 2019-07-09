@@ -48,9 +48,9 @@ import { RecoveryAdminTopComponent } from './recovery-admin-top/recovery-admin-t
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryDataService, { dataEncapsulation: false }
+    // ),
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
