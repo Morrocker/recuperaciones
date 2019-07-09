@@ -27,7 +27,8 @@ export class FormsService {
   }
 
   getUsers(userId: number): Observable<string[]> {
-    return this.http.get<string[]>(`api/users/${userId}`)
+    // return this.http.get<string[]>(`api/users/${userId}`)
+    return this.http.get<string[]>(`http://localhost:5050/cloner/usuarios`)
     .pipe(
       catchError(this.handleError<string[]>('getRecoveries', []))
     );
