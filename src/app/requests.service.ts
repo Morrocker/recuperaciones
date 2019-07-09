@@ -40,14 +40,16 @@ export class RequestsService {
   }
 
   getRequest(id: number): Observable<Request> {
-    const url = `${this.requestsUrl}/${id}`;
+    const url = `localhost:5050/cloner/requests/${id}`;
     return this.http.get<Request>(url)
     .pipe(
       catchError(this.handleError<Request>('getRequests'))
     );
   }
+
   getRequestsByUser(userId: number): Observable<Request2[]> {
-    return this.http.get<Request2[]>(`api/userreq/?userId=${userId}`)
+    const url = `localhost:5050/cloner/requests/${userId}`;
+    return this.http.get<Request2[]>(url)
     .pipe(
       catchError(this.handleError<Request2[]>('getRequests', []))
     );
