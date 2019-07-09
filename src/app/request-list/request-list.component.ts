@@ -72,13 +72,18 @@ export class RequestListComponent implements OnInit {
   }
 
   getMachines(user) {
-    if (user !== '') {
-      this
-        .formsService.getMachines(user.id)
-        .subscribe( singleuser => this.machines = singleuser.equipos);
-      this
-        .disks = [];
-    }
+    console.log('getMachines andando');
+    console.log(this.recoveryForm.value);
+    console.log(this.users);
+    console.log(this.recoveryForm.get('name').value);
+    console.log(this.users.filter(singleUser => singleUser.correo === 'ignacio@usm.cl' ));
+    // if (user !== '') {
+    //   this
+    //     .formsService.getMachines(user.id)
+    //     .subscribe( singleuser => this.machines = singleuser.equipos);
+    //   this
+    //     .disks = [];
+    // }
   }
 
   getDisks(machineName: string) {
