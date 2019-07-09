@@ -19,6 +19,10 @@ export class Request {
   rSize: string;
 }
 
+export class User {
+
+}
+
 export class RequestShort {
   id: number;
   rDate: string;
