@@ -92,14 +92,10 @@ export class RequestListComponent implements OnInit {
   onChanges() {
     this.recoveryForm.valueChanges
       .subscribe(() => {
-        this.getMachines(
-          this.users.filter(obj => {
-            return obj.correo === this.recoveryForm.get('name').value;
-          }
-          )
-        );
+        console.log('funciona algo');
+        }
         // this.getDisks(val.machine);
-      });
+      );
   }
 
   open(content) {
