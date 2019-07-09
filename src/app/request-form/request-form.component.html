@@ -9,14 +9,14 @@
           <div class="row ">
             <label class="col-3">Contacto de recepcion</label>
             <div class="col">
-              <input type="text" class="form-control" formControlName="name" placeholder="completo de contacto" required>
+              <input type="text" class="form-control" formControlName="nombreRecepcion" placeholder="completo de contacto" required>
             </div>
           </div>
 
           <div class="row ">
             <label class="col-3">Telefono de contacto</label>
             <div class="col">
-              <input type="tel" class="form-control" formControlName="phone" placeholder="+56 9 1234 5678" required>
+              <input type="tel" class="form-control" formControlName="fono" placeholder="+56 9 1234 5678" required>
             </div>
           </div>
           <hr>
@@ -27,39 +27,21 @@
           <div class="row ">
             <label class="col-3">Ciudad</label>
             <div class="col">
-              <input type="text" class="form-control" formControlName="city" placeholder="" required>
+              <input type="text" class="form-control" formControlName="ciudad" placeholder="" required>
             </div>
             <label class="col-3">Comuna</label>
             <div class="col">
-              <input type="text" class="form-control" formControlName="region" placeholder="" required>
+              <input type="text" class="form-control" formControlName="comuna" placeholder="" required>
             </div>
           </div>
           <div class="row ">
-            <label class="col-3">Calle</label>
+            <label class="col-3">Direccion</label>
             <div class="col">
-              <input type="text" class="form-control" formControlName="street" placeholder="" required>
-            </div>
-            <label class="col-3">Numero</label>
-            <div class="col">
-              <input type="text" class="form-control" formControlName="sNumber" placeholder="" required>
-            </div>
-          </div>
-          <div class="row ">
-            <label class="col-3">Oficina/departamento/seccion</label>
-            <div class="col">
-              <input type="text" class="form-control" formControlName="other" placeholder="">
+              <input type="text" class="form-control" formControlName="direccion" placeholder="" required>
             </div>
           </div>
           <hr>
 
-          <div class="row">
-            <label class="col-3" >Motivo</label>
-            <div class="input-group col">
-              <select id="motivos" class="form-control" formControlName="motive" required>
-                <option *ngFor="let motivo of motivos" value={{motivo}}>{{motivo}}</option>
-              </select>
-            </div>
-          </div>
           <div class="row ">
             <label class="col-3">Horario de recepcion</label>
             <label class="col-1">Desde:</label>

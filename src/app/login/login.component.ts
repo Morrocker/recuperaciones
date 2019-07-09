@@ -44,7 +44,8 @@ export class LoginComponent implements OnInit {
         return;
     } else {
       this.formData = this.loginForm.value;
-      this.loginService.requestLogin(this.formData).subscribe( resp => this.loginResp = resp );
+      // this.loginService.requestLogin(this.formData).subscribe( resp => this.loginResp = resp );
+      this.loginResp = this.loginService.requestLogin2(this.formData);
       if ( this.loginResp.authLogin === true ) {
         console.log('Login successful');
         // this.authService.authLogin(this.model);

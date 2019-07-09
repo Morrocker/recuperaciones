@@ -37,4 +37,67 @@ export class LoginService {
       catchError(this.handleError<LoginResp>('Login'))
     );
   }
+
+  requestLogin2(login: ILogin): LoginResp {
+    const user = login.userId;
+    const password = login.password;
+    switch ( user ) {
+      case 'ignacio@usm.cl': {
+        if (password === '1234') {
+          return {
+            authLogin: true,
+            isAdmin: true,
+            userId: 1
+          };
+        } else {
+          return {
+            authLogin: false,
+            isAdmin: false,
+            userId: 0
+          };
+        }
+        break;
+      }
+      case 'israel@usm.cl': {
+        if (password === '4321') {
+          return {
+            authLogin: true,
+            isAdmin: false,
+            userId: 2
+          };
+        } else {
+          return {
+            authLogin: false,
+            isAdmin: false,
+            userId: 0
+          };
+        }
+        break;
+      }
+      case 'alvaro@usm.cl': {
+        if (password === '9876') {
+          return {
+            authLogin: true,
+            isAdmin: true,
+            userId: 3
+          };
+        } else {
+          return {
+            authLogin: false,
+            isAdmin: false,
+            userId: 0
+          };
+        }
+        break;
+      }
+      default: {
+          return {
+            authLogin: false,
+            isAdmin: false,
+            userId: 0
+          };
+        break;
+      }
+    }
+  }
 }

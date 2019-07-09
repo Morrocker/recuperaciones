@@ -26,6 +26,16 @@ export class RequestShort {
   rSize: string;
 }
 
+export class Delivery {
+  nombreRecepcion: string;
+  fono: number;
+  direccion: string;
+  horarioDesde: string;
+  horarioHasta: string;
+  comuna: string;
+  ciudad: string;
+}
+
 
 export class Recovery {
   id: number;

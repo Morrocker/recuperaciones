@@ -19,24 +19,24 @@ const MOT = [
 export class RequestFormComponent implements OnInit {
   motivos;
   requestId;
+  formData;
   userId = +this.route.snapshot.paramMap.get('id');
   requestForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      phone: ['', Validators.required],
-      city: ['', Validators.required],
-      region: ['', Validators.required],
-      street: ['', Validators.required],
-      sNumber: ['', Validators.required],
-      other: ['', Validators.required],
-      motive: [''],
+      nombreRecepcion: ['', Validators.required],
+      fono: ['', Validators.required],
+      ciudad: ['', Validators.required],
+      comuna: ['', Validators.required],
+      direccion: ['', Validators.required],
       fromTime: ['', Validators.required],
       toTime: ['', Validators.required]
   });
 
   onSubmit(): void {
+
+    this.formData = this.requestForm.value;
     this
     .requestService
-    .sendTempRequest(this.requestForm, this.userId)
+    .sendTempRequest(this.formData, this.userId)
     .subscribe( newRequestId => this.requestId = newRequestId );
 
     this

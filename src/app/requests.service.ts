@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Request, Request2, Recovery } from './classes';
+import { Request, Request2, Recovery, Delivery } from './classes';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -57,9 +57,9 @@ export class RequestsService {
 
 
   // Post methods
-  sendTempRequest(newRequest: any, userId: number): Observable<number> {
+  sendTempRequest(recepcion: Delivery, userId: number): Observable<number> {
     return this.http
-    .post<number>(`api/newRequest/${userId}`, newRequest, httpOptions)
+    .post<number>(`localhost:5050/cloner/recepcion/${userId}`, recepcion, httpOptions)
     .pipe(
       catchError(this.handleError<number>('newRequest'))
     );
