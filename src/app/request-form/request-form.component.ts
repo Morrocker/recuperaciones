@@ -42,7 +42,7 @@ export class RequestFormComponent implements OnInit {
 
     this
     // .router.navigateByUrl(`/request/list/${this.requestId}`);
-    .router.navigateByUrl(`request/list/${this.requestId}`);
+    .router.navigateByUrl(`dashboard`);
   }
 
   // clearForm(): void {

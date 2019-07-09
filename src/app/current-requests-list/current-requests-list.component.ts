@@ -25,11 +25,13 @@ export class CurrentRequestsListComponent implements OnInit {
 
   getRecoveries(): void {
     this.recoveriesService.getRecoveries().subscribe( r => this.recoveries = r );
+    this.requests = [];
     console.log(this.recoveries);
   }
 
   getRequests(): void {
     this.requestsService.getRequests2().subscribe( r => this.requests = r );
+    this.recoveries = [];
     console.log(this.requests);
   }
 
