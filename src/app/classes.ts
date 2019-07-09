@@ -19,8 +19,15 @@ export class Request {
   rSize: string;
 }
 
-export class User {
+export class Machine {
+  id: number;
+  nombre: string;
+}
 
+export class User {
+  id: number;
+  nombre: string;
+  equipos: Machine[];
 }
 
 export class RequestShort {
