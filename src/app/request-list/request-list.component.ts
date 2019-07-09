@@ -16,29 +16,29 @@ import { RecoveriesService } from '../recoveries.service';
 
 export class RequestListComponent implements OnInit {
 
-  users = [{
-    id: 0,
-    correo: 'A',
-    equipos: [{
-      id: 0,
-      nombre: 'AA'
-    }, {
-      id: 1,
-      nombre: 'AB'
-    }]
-  }, {
-    id: 1,
-    correo: 'B',
-    equipos: [{
-      id: 2,
-      nombre: 'BA'
-    }, {
-      id: 3,
-      nombre: 'BB'
-    }]
-  }];
+  // users = [{
+  //   id: 0,
+  //   correo: 'A',
+  //   equipos: [{
+  //     id: 0,
+  //     nombre: 'AA'
+  //   }, {
+  //     id: 1,
+  //     nombre: 'AB'
+  //   }]
+  // }, {
+  //   id: 1,
+  //   correo: 'B',
+  //   equipos: [{
+  //     id: 2,
+  //     nombre: 'BA'
+  //   }, {
+  //     id: 3,
+  //     nombre: 'BB'
+  //   }]
+  // }];
 
-  // users;
+  users;
   machines;
   disks: string[] = [];
   recoveries: NewRecovery[] = [];
@@ -88,18 +88,18 @@ export class RequestListComponent implements OnInit {
     this.recoveries = this.recoveries.filter( r => r !== recovery);
   }
 
-  // getUsers() {
-  //   this
-  //     .formsService.getUsers(this.localUserId)
-  //     .subscribe( users => this.users = users );
-  // }
+  getUsers() {
+    this
+      .formsService.getUsers(this.localUserId)
+      .subscribe( users => this.users = users );
+  }
 
   getMachines() {
     console.log('getMachines andando');
     console.log(this.recoveryForm.value);
     console.log(this.users);
     console.log(this.recoveryForm.get('user').value);
-    console.log(this.users.filter(singleUser => singleUser.correo === this.recoveryForm.get('user').value ));
+    if (this.recoveryForm.get('user').value !== '') {
     const singleU = this.users.filter(singleUser => singleUser.correo === this.recoveryForm.get('user').value )[0];
     this.machines = singleU.equipos;
     // if (user !== '') {
@@ -109,6 +109,7 @@ export class RequestListComponent implements OnInit {
     //   this
     //     .disks = [];
     // }
+    }
   }
 
   getDisks(machineName: string) {
@@ -154,7 +155,7 @@ export class RequestListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.getUsers();
+    this.getUsers();
     this.onChanges();
   }
 }
