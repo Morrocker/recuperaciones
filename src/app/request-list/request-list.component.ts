@@ -138,12 +138,7 @@ export class RequestListComponent implements OnInit {
   }
 
   sendRecoveries() {
-    this
-      .recoveriesService
-      .addNewRecoveries(this.recoveries, this.requestId)
-      .subscribe();
-    this
-      .router.navigateByUrl(`request/summary/${this.requestId}`);
+      this.router.navigateByUrl(`dashboard`);
   }
 
   constructor(

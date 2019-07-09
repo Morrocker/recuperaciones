@@ -40,7 +40,7 @@ export class RequestsService {
   }
 
   getRequests2(): Observable<any[]> {
-    return this.http.get<any[]>(`localhost:5050/cloner/solicitudes`)
+    return this.http.get<any[]>(`http://localhost:5050/cloner/solicitudes`)
     .pipe(
       catchError(this.handleError<any[]>('getRequests', []))
     );
