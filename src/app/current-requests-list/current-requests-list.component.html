@@ -16,12 +16,12 @@
           <div class="col">incluir eliminados</div>
         </div>
 
-        <div class="row border-top" *ngFor="let request of requests">
-          <div class="col">{{request.id}}</div>
-          <div class="col">{{request.rStatus}}</div>
-          <div class="col">{{request.rDate}}{{this.foo}}</div>
+        <div class="row border-top" *ngFor="let recovery of recoveries">
+          <div class="col">{{recovery.correo}}</div>
+          <div class="col">{{recovery.rStatus}}</div>
+          <div class="col">{{recovery.rDate}}{{this.foo}}</div>
           <div class="col">
-            <span>{{request.rSize}}</span>
+            <span>{{recovery.rSize}}</span>
           </div>
         </div>
       </div>
@@ -39,8 +39,8 @@
           <div class="col">Horario</div>
         </div>
 
-        <div class="row border-top" *ngFor="let delivery of deliveries">
-          <div class="col">{{request.id}}</div>
+        <div class="row border-top" *ngFor="let request of requests">
+          <div class="col">{{request.nombre}}</div>
           <div class="col">{{request.rStatus}}</div>
           <div class="col">{{request.rDate}}{{this.foo}}</div>
           <div class="col">
