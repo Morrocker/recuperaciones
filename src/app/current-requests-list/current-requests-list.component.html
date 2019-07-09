@@ -14,15 +14,17 @@
           <div class="col">equipo</div>
           <div class="col">disco</div>
           <div class="col">fecha de respaldo</div>
+          <div class="col">archivos totales</div>
+          <div class="col">informacion total</div>
         </div>
 
         <div class="row border-top" *ngFor="let recovery of recoveries">
           <div class="col">{{recovery.recuperacionId}}</div>
           <div class="col">{{recovery.equipo}}</div>
-          <div class="col">{{recovery.unidad}}{{this.foo}}</div>
-          <div class="col">
-            <span>{{recovery.fechaRespaldo}}</span>
-          </div>
+          <div class="col">{{recovery.unidad}}</div>
+          <div class="col"> <span>{{recovery.fechaRespaldo}}</span> </div>
+          <div class="col">{{recovery.archivosTotales}}</div>
+          <div class="col">{{recovery.tamanoTotales}}</div>
         </div>
       </div>
     </div>
