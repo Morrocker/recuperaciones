@@ -29,7 +29,7 @@ export class LoginService {
     };
   }
 
-  RequestLogin(login: ILogin): Observable<LoginResp> {
+  requestLogin(login: ILogin): Observable<LoginResp> {
     return this.http
     // .post<LoginResp>(this.requestsUrl, login, httpOptions)
     .post<LoginResp>(this.requestsUrl, login, httpOptions)
