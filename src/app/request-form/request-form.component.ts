@@ -27,8 +27,8 @@ export class RequestFormComponent implements OnInit {
       ciudad: ['', Validators.required],
       comuna: ['', Validators.required],
       direccion: ['', Validators.required],
-      fromTime: ['', Validators.required],
-      toTime: ['', Validators.required]
+      horarioDesde: ['', Validators.required],
+      horarioHasta: ['', Validators.required]
   });
 
   onSubmit(): void {
