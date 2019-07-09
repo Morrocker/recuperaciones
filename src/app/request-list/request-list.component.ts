@@ -15,7 +15,7 @@ import { RecoveriesService } from '../recoveries.service';
 })
 
 export class RequestListComponent implements OnInit {
-  users: string[] = [];
+  users;
   machines: string[] = [];
   disks: string[] = [];
   recoveries: NewRecovery[] = [];
@@ -71,11 +71,11 @@ export class RequestListComponent implements OnInit {
       .subscribe( users => this.users = users );
   }
 
-  getMachines(userId: string) {
-    if (userId !== '') {
+  getMachines(user) {
+    if (user !== '') {
       this
-        .formsService.getMachines(userId)
-        .subscribe( machines => this.machines = machines);
+        .formsService.getMachines(user.id)
+        .subscribe( singleuser => this.machines = singleuser.equipos);
       this
         .disks = [];
     }
@@ -92,8 +92,9 @@ export class RequestListComponent implements OnInit {
   onChanges() {
     this.recoveryForm.valueChanges
       .subscribe(val => {
-      this.getMachines(val.name);
-      this.getDisks(val.machine);
+      this.getMachines(this.users.filter(obj => {
+  return obj.correo === this.recoveryForm.get('name').value; }));
+      // this.getDisks(val.machine);
     });
   }
 

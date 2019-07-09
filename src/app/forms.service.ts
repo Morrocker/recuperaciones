@@ -33,10 +33,10 @@ export class FormsService {
       catchError(this.handleError<string[]>('getRecoveries', []))
     );
   }
-  getMachines(userName: string): Observable<string[]> {
-    return this.http.get<string[]>(`api/machines/${userName}`)
+  getMachines(userId: string): Observable<any> {
+    return this.http.get<any>(`http://localhost:5050/cloner/usuarios/${userId}`)
     .pipe(
-      catchError(this.handleError<string[]>('getRecoveries', []))
+      catchError(this.handleError<any>('getMachines', []))
     );
   }
   getDisks(machineName: number): Observable<string[]> {
