@@ -34,6 +34,7 @@ export class RequestFormComponent implements OnInit {
   onSubmit(): void {
 
     this.formData = this.requestForm.value;
+    console.log('objeto recepcion: ' + this.formData);
     this
     .requestService
     .sendTempRequest(this.formData, this.userId)

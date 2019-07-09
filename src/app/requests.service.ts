@@ -58,6 +58,7 @@ export class RequestsService {
 
   // Post methods
   sendTempRequest(recepcion: Delivery, userId: number): Observable<number> {
+    console.log('objeto recepcion:' + recepcion);
     return this.http
     // .post<number>(`localhost:5050/cloner/recepcion/${userId}`, recepcion, httpOptions)
     .post<number>(`http://localhost:5050/cloner/recepcion`, recepcion, httpOptions)
