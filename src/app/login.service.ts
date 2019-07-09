@@ -32,7 +32,7 @@ export class LoginService {
   requestLogin(login: ILogin): Observable<LoginResp> {
     return this.http
     // .post<LoginResp>(this.requestsUrl, login, httpOptions)
-    .post<LoginResp>(this.requestsUrl, login, httpOptions)
+    .post<LoginResp>('localhost:5050/cloner/login', login, httpOptions)
     .pipe(
       catchError(this.handleError<LoginResp>('Login'))
     );
